@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image & DOCX to PDF Converter | ToolCanvas</title>
+    <meta name="description" content="Convert your images and DOCX files to PDF quickly and securely right in your browser.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300f5ff'/><circle cx='50' cy='50' r='25' fill='%230a0a1a'/></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.5.0/mammoth.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+    </div>
+
+    <header class="tool-header" id="tool-nav"></header>
+
+    <main class="container">
+        <div class="tool-section glass-card fade-in-up">
+            <h1 class="text-gradient">PDF Converter</h1>
+            <p class="text-muted">Convert images or DOCX documents to PDF format.</p>
+
+            <div class="tab-container mt-2">
+                <div class="tab-header">
+                    <button class="tab-btn active" data-target="image-pdf">Image to PDF</button>
+                    <button class="tab-btn" data-target="docx-pdf">DOCX to PDF</button>
+                </div>
+                
+                <div class="tab-content active" id="image-pdf">
+                    <div class="file-upload-zone glass-panel mt-2" id="img-drop-zone">
+                        <div class="upload-icon">📄</div>
+                        <h3>Drag & Drop Images Here</h3>
+                        <p class="text-muted">Supports JPG, PNG, WEBP (Multiple allowed)</p>
+                        <input type="file" id="img-input" multiple accept="image/jpeg, image/png, image/webp" class="hidden-input">
+                        <button class="btn btn-primary mt-1" onclick="document.getElementById('img-input').click()">Browse Files</button>
+                    </div>
+
+                    <div id="img-preview-container" class="preview-grid mt-2 hidden">
+                        <!-- Image thumbnails go here -->
+                    </div>
+
+                    <div id="img-options" class="options-grid mt-2 hidden glass-panel">
+                        <div class="input-group">
+                            <label>Orientation</label>
+                            <select id="pdf-orientation" class="form-control">
+                                <option value="p">Portrait</option>
+                                <option value="l">Landscape</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Page Size</label>
+                            <select id="pdf-format" class="form-control">
+                                <option value="a4">A4</option>
+                                <option value="letter">Letter</option>
+                                <option value="fit">Fit to Image</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Margin (px)</label>
+                            <input type="number" id="pdf-margin" class="form-control" value="0" min="0" max="100">
+                        </div>
+                    </div>
+
+                    <div id="img-action-area" class="mt-2 hidden text-center">
+                        <button id="convert-img-btn" class="btn btn-primary btn-lg glow-effect">Convert to PDF</button>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="docx-pdf">
+                    <div class="file-upload-zone glass-panel mt-2" id="docx-drop-zone">
+                        <div class="upload-icon">📝</div>
+                        <h3>Drag & Drop DOCX File Here</h3>
+                        <p class="text-muted">Supports .docx files (Single file)</p>
+                        <input type="file" id="docx-input" accept=".docx" class="hidden-input">
+                        <button class="btn btn-primary mt-1" onclick="document.getElementById('docx-input').click()">Browse File</button>
+                    </div>
+
+                    <div id="docx-preview" class="glass-panel mt-2 hidden">
+                        <h3 class="mb-1">Document Preview</h3>
+                        <div id="docx-html-content" class="document-preview-box"></div>
+                    </div>
+
+                    <div id="docx-action-area" class="mt-2 hidden text-center">
+                        <button id="convert-docx-btn" class="btn btn-primary btn-lg glow-effect">Convert to PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading-overlay" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>Processing...</p>
+            </div>
+            
+            <div id="download-area" class="mt-2 text-center glass-panel hidden">
+                <h3 class="success-text">Conversion Successful!</h3>
+                <a id="download-link" class="btn btn-primary btn-lg mt-1" download="converted.pdf">Download PDF</a>
+                <button id="reset-btn" class="btn btn-secondary mt-1 ml-1">Convert Another</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/converter.js"></script>
+</body>
+</html>

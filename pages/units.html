@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolCanvas - Unit & Currency Converter</title>
+    <meta name="description" content="Convert between lengths, weights, temperatures, currencies, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300f5ff'/></svg>">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tools.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <style>
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 10px;}
+        .tab-btn { padding: 10px 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; cursor: pointer; border-radius: 999px; white-space: nowrap;}
+        .tab-btn.active { background: #00f5ff; color: #000; font-weight: bold; }
+        
+        .converter-container { background: rgba(255,255,255,0.03); padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px); }
+        .conv-row { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        .conv-box { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 5px; }
+        .conv-box input { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.5); color: #fff; font-size: 18px; }
+        .conv-box select { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: #1a1a2e; color: #fff; font-size: 16px; cursor: pointer; }
+        
+        .swap-btn { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #00f5ff; font-size: 24px; transition: transform 0.3s; margin-top: 25px;}
+        .swap-btn:hover { transform: rotate(180deg); background: rgba(0, 245, 255, 0.2); }
+        
+        .ref-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .ref-table th, .ref-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ref-table th { color: #94a3b8; font-weight: normal; }
+        .ref-table tr:hover { background: rgba(255,255,255,0.05); }
+        
+        .currency-status { font-size: 12px; color: #94a3b8; text-align: right; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="background-effects">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+    </div>
+    
+    <header class="tool-header" id="tool-nav"></header>
+
+    <main class="tool-container">
+        <h1>Unit & Currency Converter</h1>
+        <div class="tabs" id="unit-tabs">
+            <button class="tab-btn active" data-cat="length">Length</button>
+            <button class="tab-btn" data-cat="weight">Weight</button>
+            <button class="tab-btn" data-cat="temperature">Temperature</button>
+            <button class="tab-btn" data-cat="volume">Volume</button>
+            <button class="tab-btn" data-cat="area">Area</button>
+            <button class="tab-btn" data-cat="speed">Speed</button>
+            <button class="tab-btn" data-cat="data">Data</button>
+            <button class="tab-btn" data-cat="currency">Currency</button>
+        </div>
+
+        <div class="converter-container">
+            <div class="conv-row">
+                <div class="conv-box">
+                    <label>From</label>
+                    <input type="number" id="from-val" value="1">
+                    <select id="from-unit"></select>
+                </div>
+                
+                <button class="swap-btn" id="swap-btn" title="Swap Units">⇄</button>
+                
+                <div class="conv-box">
+                    <label>To</label>
+                    <input type="text" id="to-val" readonly style="background: rgba(0,245,255,0.05); border-color: rgba(0,245,255,0.3); font-weight: bold; color: #00f5ff;">
+                    <select id="to-unit"></select>
+                </div>
+            </div>
+            
+            <div id="currency-info" class="currency-status" style="display: none;">Rates updated...</div>
+
+            <h3>Quick Reference</h3>
+            <table class="ref-table">
+                <thead>
+                    <tr>
+                        <th>Unit</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="ref-tbody">
+                    <!-- Populated via JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/units.js"></script>
+</body>
+</html>
