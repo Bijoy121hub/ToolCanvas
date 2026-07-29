@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ToolCanvas — Your all-in-one toolkit for everyday tasks. Powerful tools, zero uploads to servers, 100% privacy.">
+    <title>ToolCanvas — Your All-in-One Online Toolkit</title>
+    
+    <!-- Favicon: inline SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%2300f5ff'/><circle cx='50' cy='50' r='30' fill='%230a0a1a'/></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+        <div class="bg-grid"></div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero reveal" id="home">
+            <div class="hero-badge">✨ 7 Free Tools — No Sign Up Required</div>
+            <h1 class="hero-title gradient-text">ToolCanvas</h1>
+            <p class="hero-subtitle">Your all-in-one toolkit — powerful tools, zero uploads to servers, 100% privacy.</p>
+            <div class="scroll-indicator">
+                <a href="#tools" aria-label="Scroll to tools">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Tools Grid Section -->
+        <section class="tools-section" id="tools">
+            <h2 class="section-heading reveal">Explore Our Tools<span class="heading-underline"></span></h2>
+            <div class="tools-grid">
+                
+                <!-- Tool 1: Birthday -->
+                <a href="pages/birthday.html" class="tool-card tilt-card reveal" style="--gradient-start: #ec4899; --gradient-end: #fb7185;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">🎂</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Birthday Calculator</h3>
+                        <p>Track age and countdown to next birthday.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 2: PDF Converter -->
+                <a href="pages/converter.html" class="tool-card tilt-card reveal" style="--gradient-start: #3b82f6; --gradient-end: #60a5fa;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">📄</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>PDF Converter</h3>
+                        <p>Convert documents to PDF instantly.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 3: Image Resizer -->
+                <a href="pages/resizer.html" class="tool-card tilt-card reveal" style="--gradient-start: #10b981; --gradient-end: #2dd4bf;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">🖼️</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Image Resizer</h3>
+                        <p>Resize and compress images quickly.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 4: Calculator -->
+                <a href="pages/calculator.html" class="tool-card tilt-card reveal" style="--gradient-start: #f59e0b; --gradient-end: #fb923c;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">💰</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Calculator</h3>
+                        <p>Advanced financial and basic calculations.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 5: Unit Converter -->
+                <a href="pages/units.html" class="tool-card tilt-card reveal" style="--gradient-start: #4f46e5; --gradient-end: #818cf8;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">🔄</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Unit Converter</h3>
+                        <p>Convert length, weight, temperature, and more.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 6: QR Code -->
+                <a href="pages/qrcode.html" class="tool-card tilt-card reveal" style="--gradient-start: #8b5cf6; --gradient-end: #c084fc;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">📱</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>QR Code</h3>
+                        <p>Generate and scan QR codes securely.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+                <!-- Tool 7: Password -->
+                <a href="pages/password.html" class="tool-card tilt-card reveal" style="--gradient-start: #ef4444; --gradient-end: #f43f5e;">
+                    <div class="tool-icon-wrapper">
+                        <div class="tool-icon">🔐</div>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Password Generator</h3>
+                        <p>Create strong, secure random passwords.</p>
+                    </div>
+                    <div class="tool-arrow">→</div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section reveal">
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h4>100% Private</h4>
+                <p>All tools run in your browser</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h4>Lightning Fast</h4>
+                <p>No server uploads needed</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h4>Beautiful Design</h4>
+                <p>Premium experience, totally free</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content reveal">
+            <p>Built with ❤️ by ToolCanvas</p>
+            <p>&copy; <span id="current-year"></span> All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
